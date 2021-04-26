@@ -1,0 +1,100 @@
+    1  apt-get update ; apt-get install ansible -y 
+    2  git clone https://github.com/amitvashisttech/ansible-accenture-26-April-2021.git
+    3  ls
+    4  cd ansible-accenture-26-April-2021/
+    5  ls
+    6  mkdir 00-Setup
+    7  vim 00-Setup/README.md
+    8  ansible -version 
+    9  ansible --version 
+   10  ls
+   11  cd ..
+   12  ls
+   13  cd ansible-accenture-26-April-2021/
+   14  ls
+   15  mkdir 01-Inventory
+   16  ls
+   17  git config credential.helper store
+   18  ls
+   19  cd 01-Inventory/
+   20  ls
+   21  vim inventory
+   22  ping 10.0.0.5
+   23  ping 10.0.0.6
+   24  ping 10.0.0.7
+   25  ls
+   26  ansible all -i inventory -u ansibleuser -k 
+   27  ansible all -i inventory -m ping -u ansibleuser -k 
+   28  apt-get install sshpass -y 
+   29  ansible all -i inventory -m ping -u ansibleuser -k 
+   30  ls -ltr  /root/.ssh/
+   31  ssh ansibleuser@10.0.0.5
+   32  ls -ltr  /root/.ssh/
+   33  cat   /root/.ssh/known_hosts 
+   34  ansible all -i inventory -m ping -u ansibleuser -k 
+   35  ls
+   36  vim /etc/ansible/ansible.cfg 
+   37  ansible all -i inventory -m ping -u ansibleuser -k 
+   38  cat /root/.ssh/known_hosts 
+   39  ansible all -i inventory -m ping -u ansibleuser -k 
+   40  cat /root/.ssh/known_hosts 
+   41  vim /etc/ansible/ansible.cfg 
+   42  ansible all -i inventory -m ping -u ansibleuser -k 
+   43  cat inventory 
+   44  ls
+   45  ansible 10.0.0.6 -i inventory -m ping -u ansibleuser -k 
+   46  ansible 10.0.0.6 -i inventory -m ping -u ansibleuser --help
+   47  ls
+   48  vim inventory 
+   49  ls
+   50  ansible all -i inventory -m ping -u ansibleuser -k 
+   51  ansible 10.0.0.6 -i inventory -m ping -u ansibleuser 
+   52  ansible web -i inventory -m ping -u ansibleuser 
+   53  ansible ansible -i inventory -m ping -u ansibleuser 
+   54  ansible web -i inventory -m ping -u ansibleuser 
+   55  vim inventory 
+   56  ansible web -i inventory -m ping -u ansibleuser 
+   57  vim inventory 
+   58  ansible all -i inventory -m ping -u ansibleuser 
+   59  ansible all -i inventory -m ping -u ansibleuser -k 
+   60  vim inventory 
+   61  ansible all -i inventory -m ping -u ansibleuser 
+   62  vim inventory 
+   63  ansible all -i inventory -m ping -u ansibleuser 
+   64  ansible dc -i inventory -m ping -u ansibleuser 
+   65  vim inventory 
+   66  ansible dc -i inventory -m ping -u ansibleuser 
+   67  vim inventory 
+   68  ansible all -i inventory -m ping -u ansibleuser 
+   69  ansible all -i inventory -m ping -u ansibleuser | grep -i "10.0."
+   70  ansible all -i inventory -m ping -u ansibleuser | grep -i "10.0." | wc -l 
+   71  ansible db -i inventory -m ping -u ansibleuser | grep -i "10.0." | wc -l 
+   72  ansible db -i inventory -m ping -u ansibleuser | grep -i "10.0." 
+   73  ansible web -i inventory -m ping -u ansibleuser | grep -i "10.0." 
+   74  ansible ansible -i inventory -m ping -u ansibleuser | grep -i "10.0." 
+   75  ansible dc -i inventory -m ping -u ansibleuser | grep -i "10.0." 
+   76  vim inventory 
+   77  ansible dc -i inventory -m ping -u ansibleuser | grep -i "10.0." 
+   78  ls
+   79  vim inventory 
+   80  ansible dc -i inventory -m ping 
+   81  LS
+   82  ls
+   83  vim inventory 
+   84  ansible dc -i inventory -m ping 
+   85  ls
+   86  vim inventory 
+   87  ansible dc -i inventory -m ping 
+   88  vim inventory 
+   89  ansible dc -i inventory -m ping 
+   90  vim inventory 
+   91  ansible dc -i inventory -m ping 
+   92  ls
+   93  vim inventory 
+   94  ansible dc -i inventory -m ping 
+   95  vim inventory 
+   96  ansible dc -i inventory -m ping 
+   97  ls
+   98  cd ..
+   99  ls
+  100  history > Day1_History.txt
