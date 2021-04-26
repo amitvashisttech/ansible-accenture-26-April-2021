@@ -185,3 +185,37 @@
   185  cd ..
   186  ls
   187  history > Day1_History.txt 
+  188  git add . ; git commit -m "02-AdHoc-Commands"; git push 
+  189  ls
+  190  vim /etc/ssh/sshd_config 
+  191  ls
+  192  ssh-keygen 
+  193  ansible 'web' -i inventory -m command 'ssh-copy-id' -s 
+  194  ansible 'web' -i inventory -m command -a 'ssh-copy-id' -s 
+  195  ls
+  196  cd 02-AdHoc-Commands/
+  197  ansible 'web' -i inventory -m command -a 'ssh-copy-id' -s 
+  198  ssh-copy-id 
+  199  ssh-copy-id ansibleuser@10.0.0.5
+  200  exit
+  201  ssh-copy-id ansibleuser@10.0.0.6
+  202  ssh-copy-id ansibleuser@10.0.0.7
+  203  ls
+  204  cd ansible-accenture-26-April-2021/
+  205  ls
+  206  cd 02-AdHoc-Commands/
+  207  ls
+  208  ansible web -i inventory -m ping -u ansibleuser --key=/root/.ssh/id_rsa
+  209  vim inventory 
+  210  ansible web -i inventory -m ping -u ansibleuser --key=/root/.ssh/id_rsa
+  211  vim /etc/ansible/ansible.cfg 
+  212  ls
+  213  vim inventory 
+  214  ls -ltr /root/.ssh/id_rsa
+  215  vim inventory 
+  216  ansible web -i inventory -m ping
+  217  ansible 'web' -i inventory -m service -a 'name=apache2 state=stopped' -s 
+  218  ls
+  219  cd ..
+  220  ls
+  221  history > Day1_History.txt 
