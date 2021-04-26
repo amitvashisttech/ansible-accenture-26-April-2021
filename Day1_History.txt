@@ -98,3 +98,90 @@
    98  cd ..
    99  ls
   100  history > Day1_History.txt
+  101  ls
+  102  git add . ; 
+  103  git commit -m "01-Inventory"
+  104  git push 
+  105  ls
+  106  git pull 
+  107  ls
+  108  cp -rf 01-Inventory 02-AdHoc-Commands
+  109  ls
+  110  cd 02-AdHoc-Commands/
+  111  ls
+  112  cat inventory 
+  113  ls
+  114  cat inventory 
+  115  ls
+  116  ansible 'web:db' -i inventory -m ping 
+  117  ls
+  118  vim inventory 
+  119  ls
+  120  ansible 'web:db' -i inventory -m ping 
+  121  ansible PROD -i inventory -m ping 
+  122  ansible TEST -i inventory -m ping 
+  123  ansible 'PROD:&web' -i inventory -m ping 
+  124  ansible 'TEST:&web' -i inventory -m ping 
+  125  vim inventory 
+  126  ansible 'PROD:&web' -i inventory -m ping 
+  127  ansible 'TEST:&web' -i inventory -m ping 
+  128  vim inventory 
+  129  ansible 'TEST:&web' -i inventory -m ping 
+  130  ansible 'TEST:&db' -i inventory -m ping 
+  131  ansible 'PROD:&db' -i inventory -m ping 
+  132  ansible 'PROD:db' -i inventory -m ping 
+  133  ls
+  134  vim inventory 
+  135  ansible 'PROD:&web' -i inventory -m ping 
+  136  ansible 'PROD:&web:!ansible' -i inventory -m ping 
+  137  ls
+  138  ansible-doc  -l 
+  139  ls
+  140  vim inventory 
+  141  ls
+  142  ansible web -i inventory -m ping
+  143  df -h 
+  144  ansible web -i inventory -m command -a 'df -h'
+  145  uname -a 
+  146  ansible web -i inventory -m command -a 'uname -a '
+  147  ansible web -i inventory -m command -a 'uname -r'
+  148  cat /etc/os-release 
+  149  ansible web -i inventory -m command -a 'cat /etc/*-release'
+  150  cat /etc/*-release
+  151  ansible web -i inventory -m command -a 'cat /etc/os-release'
+  152  ansible web -i inventory -m command -a 'cat /etc/*-release'
+  153  ansible web -i inventory -m shell -a 'cat /etc/*-release'
+  154  ansible web -i inventory -m command -a 'cat /etc/*-release'ls
+  155  apt-get install sshpass -y 
+  156  ansible web -i inventory -m command -a 'apt-get install sshpass -y'
+  157  ansible web -i inventory -m command -a 'apt-get install sshpass -y' -s 
+  158  la
+  159  ansible-doc | grep -i apt
+  160  ansible-doc -l | grep -i apt
+  161  ansible-doc apt 
+  162  ansible web -i inventory -m apt -a 'name=sshpass state=present' -s 
+  163  history | more 
+  164  ansible web -i inventory -m command -a 'whoami' 
+  165  ansible web -i inventory -m shell -a 'whoami; ps -ef' 
+  166  ansible web -i inventory -m command -a 'whoami; ps -ef' 
+  167  ansible web -i inventory -m command -a 'whoami' -m command -a 'ps -ef' 
+  168  ansible web -i inventory -m command -a 'whoami' -m command -a 'uname -a' 
+  169  ansible web -i inventory  -m command -a 'uname -a' 
+  170  ansible web -i inventory  -m command -a 'uname -a >> /tmp/test.txt' 
+  171  ansible web -i inventory  -m shell -a 'uname -a >> /tmp/test.txt' 
+  172  ansible web -i inventory  -m shell -a 'cat /tmp/test.txt' 
+  173  ansible 'web:!ansible' -i inventory -m apt -a 'name=sshpass state=absent ' -s 
+  174  ansible 'web' -i inventory -m apt -a 'name=sshpass state=present ' -s 
+  175  ansible 'web' -i inventory -m apt -a 'name=apache2 state=present ' -s 
+  176  ansible 'web' -i inventory -m service -a 'name=apache2 state=started' -s 
+  177  systemctl status apache2
+  178  systemctl stop apache2
+  179  systemctl status apache2
+  180  ansible 'web' -i inventory -m service -a 'name=apache2 state=started' -s 
+  181  systemctl status apache2
+  182  ls
+  183  history 
+  184  ls
+  185  cd ..
+  186  ls
+  187  history > Day1_History.txt 
