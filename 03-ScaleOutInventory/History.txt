@@ -1,0 +1,63 @@
+    1  ls
+    2  mkdir 03-ScaleOutInventory
+    3  ls
+    4  cd 03-ScaleOutInventory/
+    5  ls
+    6  mkdir -p {prod,test}/{group_vars,host_vars} 
+    7  apt-get install tree -y 
+    8  ls
+    9  tree . 
+   10  ls -ltr 
+   11  ls -R
+   12  ls
+   13  cp -rf ../02-AdHoc-Commands/inventory prod_inventory
+   14  ls
+   15  cp -rf prod_inventory test/test_inventory
+   16  mv prod_inventory prod
+   17  tree . 
+   18  ls
+   19  cd prod/
+   20  ls
+   21  vim prod_inventory 
+   22  ls
+   23  cp -rf prod_inventory ../test/test_inventory 
+   24  vim ../test/test_inventory 
+   25  ls
+   26  ansible all -i prod_inventory -m ping 
+   27  cd ..
+   28  ls
+   29  ansible all -i prod/prod_inventory -m ping 
+   30  vim prod/group_vars/all
+   31  ls
+   32  ansible all -i prod/prod_inventory -m user -a "name={{username}} password=12345" -s 
+   33  ls
+   34  tree . 
+   35  cat prod/group_vars/all 
+   36  cat prod/prod_inventory 
+   37  ls
+   38  cp -rf prod/group_vars/all prod/group_vars/web
+   39  cp -rf prod/group_vars/all prod/group_vars/db
+   40  ls
+   41  vim prod/group_vars/web 
+   42  vim prod/group_vars/db
+   43  ls
+   44  tree . 
+   45  ansible all -i prod/prod_inventory -m user -a "name={{username}} password=12345" -s 
+   46  ls
+   47  tree .
+   48  cat prod/group_vars/all 
+   49  ls
+   50  cat prod/prod_inventory 
+   51  ls
+   52  cp -rf prod/group_vars/web prod/host_vars/10.0.0.5
+   53  vim prod/host_vars/10.0.0.5
+   54  tree .
+   55  ansible all -i prod/prod_inventory -m user -a "name={{username}} password=12345" -s 
+   56  ls
+   57  vim prod/prod_inventory 
+   58  ansible all -i prod/prod_inventory -m user -a "name={{username}} password=12345" -s 
+   59  vim prod/prod_inventory 
+   60  ansible all -i prod/prod_inventory -m user -a "name={{username}} password=12345" -s 
+   61  ls
+   62  history 
+   63  history > History.txt
