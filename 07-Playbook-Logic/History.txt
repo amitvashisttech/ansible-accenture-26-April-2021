@@ -561,3 +561,51 @@
   561  cd - 
   562  ls
   563  history > History.txt
+  564  ls
+  565  cd ../
+  566  ls
+  567  git add . ; git commit -m "06-Playbooks" ; git push 
+  568  ls
+  569  cd ..
+  570  ls
+  571  cd ansible-accenture-26-April-2021/
+  572  ls
+  573  cp -rf 06-Playbooks 07-Playbook-Logic
+  574  vim 07-Playbook-Logic/
+  575  ls
+  576  cd 07-Playbook-Logic/
+  577  ls
+  578  vim webserver.yaml 
+  579  ls
+  580  ansible-playbook webserver.yaml 
+  581  vim webserver.yaml 
+  582  ansible-playbook webserver.yaml 
+  583  vim webserver.yaml 
+  584  ansible-playbook webserver.yaml 
+  585  ls
+  586  cd ..
+  587  ls
+  588  git add . ; git commit -m "06-Playbooks-Logic" ; git push 
+  589  ls
+  590  cd 07-Playbook-Logic/
+  591  ls
+  592  cp -rf webserver.yaml webserver-2.yaml 
+  593  ls
+  594  vim webserver-2.yaml 
+  595  ls
+  596  echo "Test Web Page" >> files/web.html
+  597  ansible-playbook webserver-2.yaml 
+  598  vim webserver-2.yaml 
+  599  ansible-playbook webserver-2.yaml 
+  600  vim webserver-2.yaml 
+  601  ansible-playbook webserver-2.yaml 
+  602  echo "Hey Info" >> files/info.html
+  603  ansible-playbook webserver-2.yaml 
+  604  ls
+  605  cd ..
+  606  ls
+  607  git add . ; git commit -m "06-Playbooks-Logic" ; git push 
+  608  l
+  609  cd 07-Playbook-Logic/
+  610  ls
+  611  history > History.txt 
