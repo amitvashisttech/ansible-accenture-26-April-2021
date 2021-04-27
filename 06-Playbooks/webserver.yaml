@@ -1,0 +1,29 @@
+---
+
+# This is going to be our first playbook
+
+- hosts: web
+  #sudo: yes
+  become: yes
+  tasks:
+  - name: Install Apache Packages 
+    apt: name=apache2 state=present
+
+  - name: Start Apache Service
+    service: name=apache2 state=started enabled=True
+
+
+
+- hosts: db
+  become: yes
+  tasks:
+  - name: Deploy DB ConfigFile
+    copy: src=files/index-db.html dest=/var/www/html/info-db.html
+
+
+
+- hosts: db:web
+  become: yes
+  tasks:
+  - name: Common Custom Web Page
+    copy: src=files/common.html dest=/var/www/html/common.html
