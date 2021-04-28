@@ -5,3 +5,4 @@
   roles:
   - firewalld
   - webserver
+  - server-common
