@@ -8,7 +8,7 @@
   vars:
     doc_root: "/var/www/html/mywebappv2"
     username: "Amit"
-    sitename: "Accenture-Demo-Test-4"
+    sitename: "Accenture-Demo-Test-7"
 
 #  vars_prompt: 
 #  - name: sitename
@@ -49,11 +49,16 @@
   - name: Purge the old Dir
     file: path=/var/www/html/ state=absent
 
+  - name: Force to run my handlers
+    meta: flush_handlers
+
   - name: Create Site Location
     file: path={{doc_root}} state=directory mode=0755
 
   - name: Deploy DB ConfigFile
     copy: src=files/index-db.html dest={{doc_root}}/info-db.html
+    notify: 
+      - Restart Apache
 
   - name: Download Mario Background Image
     get_url: url="https://freepngimg.com/thumb/super_mario/30917-5-super-mario-kart-clipart.png"  dest={{doc_root}}/back.jpg mode=0755
