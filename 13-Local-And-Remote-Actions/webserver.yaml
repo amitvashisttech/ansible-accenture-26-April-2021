@@ -1,0 +1,8 @@
+---
+
+- hosts: 'web:db'
+  become: yes 
+  roles:
+  - firewalld
+  - webserver
+  - server-common
