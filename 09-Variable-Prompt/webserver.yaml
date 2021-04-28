@@ -16,6 +16,8 @@
   tasks:
   - name: Ansible date fact example
     debug: var=ansible_date_time.date  
+  
+
 
   - debug: msg="Provided Site Name is {{sitename}}"
   
@@ -44,6 +46,9 @@
 
   - name: Deploy DB ConfigFile
     copy: src=files/index-db.html dest={{doc_root}}/info-db.html
+
+  - name: Example file with ansible timestamp
+    file: path={{doc_root}}/example-file-{{ansible_date_time.epoch}}.txt state=touch
 
   - name: Common Custom Web Page
     copy: src=files/common.html dest={{doc_root}}/common.html
