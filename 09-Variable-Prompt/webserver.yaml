@@ -14,6 +14,9 @@
     prompt: What would be your site name ?
 
   tasks:
+  - name: Ansible date fact example
+    debug: var=ansible_date_time.date  
+
   - debug: msg="Provided Site Name is {{sitename}}"
   
   - name: Install Apache Packages 
