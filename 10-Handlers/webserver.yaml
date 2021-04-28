@@ -8,7 +8,7 @@
   vars:
     doc_root: "/var/www/html/mywebappv2"
     username: "Amit"
-    sitename: "Accenture-Demo-Test-1"
+    sitename: "Accenture-Demo-Test-4"
 
 #  vars_prompt: 
 #  - name: sitename
@@ -43,6 +43,7 @@
     template: src=templates/apache2.conf.j2 dest=/etc/apache2/apache2.conf
     notify: 
       - Restart Apache
+      - amit
 
 
   - name: Purge the old Dir
@@ -88,3 +89,6 @@
   handlers:
   - name: Restart Apache
     service: name=apache2 state=restarted
+  - name: amit
+    shell: 'echo "Hello Handlers {{ansible_hostname}}" >> /tmp/abc.txt'
+    delegate_to: 127.0.0.1
