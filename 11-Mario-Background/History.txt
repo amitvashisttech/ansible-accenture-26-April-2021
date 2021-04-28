@@ -1,0 +1,651 @@
+    1  apt-get update ; apt-get install ansible -y 
+    2  git clone https://github.com/amitvashisttech/ansible-accenture-26-April-2021.git
+    3  ls
+    4  cd ansible-accenture-26-April-2021/
+    5  ls
+    6  mkdir 00-Setup
+    7  vim 00-Setup/README.md
+    8  ansible -version 
+    9  ansible --version 
+   10  ls
+   11  cd ..
+   12  ls
+   13  cd ansible-accenture-26-April-2021/
+   14  ls
+   15  mkdir 01-Inventory
+   16  ls
+   17  git config credential.helper store
+   18  ls
+   19  cd 01-Inventory/
+   20  ls
+   21  vim inventory
+   22  ping 10.0.0.5
+   23  ping 10.0.0.6
+   24  ping 10.0.0.7
+   25  ls
+   26  ansible all -i inventory -u ansibleuser -k 
+   27  ansible all -i inventory -m ping -u ansibleuser -k 
+   28  apt-get install sshpass -y 
+   29  ansible all -i inventory -m ping -u ansibleuser -k 
+   30  ls -ltr  /root/.ssh/
+   31  ssh ansibleuser@10.0.0.5
+   32  ls -ltr  /root/.ssh/
+   33  cat   /root/.ssh/known_hosts 
+   34  ansible all -i inventory -m ping -u ansibleuser -k 
+   35  ls
+   36  vim /etc/ansible/ansible.cfg 
+   37  ansible all -i inventory -m ping -u ansibleuser -k 
+   38  cat /root/.ssh/known_hosts 
+   39  ansible all -i inventory -m ping -u ansibleuser -k 
+   40  cat /root/.ssh/known_hosts 
+   41  vim /etc/ansible/ansible.cfg 
+   42  ansible all -i inventory -m ping -u ansibleuser -k 
+   43  cat inventory 
+   44  ls
+   45  ansible 10.0.0.6 -i inventory -m ping -u ansibleuser -k 
+   46  ansible 10.0.0.6 -i inventory -m ping -u ansibleuser --help
+   47  ls
+   48  vim inventory 
+   49  ls
+   50  ansible all -i inventory -m ping -u ansibleuser -k 
+   51  ansible 10.0.0.6 -i inventory -m ping -u ansibleuser 
+   52  ansible web -i inventory -m ping -u ansibleuser 
+   53  ansible ansible -i inventory -m ping -u ansibleuser 
+   54  ansible web -i inventory -m ping -u ansibleuser 
+   55  vim inventory 
+   56  ansible web -i inventory -m ping -u ansibleuser 
+   57  vim inventory 
+   58  ansible all -i inventory -m ping -u ansibleuser 
+   59  ansible all -i inventory -m ping -u ansibleuser -k 
+   60  vim inventory 
+   61  ansible all -i inventory -m ping -u ansibleuser 
+   62  vim inventory 
+   63  ansible all -i inventory -m ping -u ansibleuser 
+   64  ansible dc -i inventory -m ping -u ansibleuser 
+   65  vim inventory 
+   66  ansible dc -i inventory -m ping -u ansibleuser 
+   67  vim inventory 
+   68  ansible all -i inventory -m ping -u ansibleuser 
+   69  ansible all -i inventory -m ping -u ansibleuser | grep -i "10.0."
+   70  ansible all -i inventory -m ping -u ansibleuser | grep -i "10.0." | wc -l 
+   71  ansible db -i inventory -m ping -u ansibleuser | grep -i "10.0." | wc -l 
+   72  ansible db -i inventory -m ping -u ansibleuser | grep -i "10.0." 
+   73  ansible web -i inventory -m ping -u ansibleuser | grep -i "10.0." 
+   74  ansible ansible -i inventory -m ping -u ansibleuser | grep -i "10.0." 
+   75  ansible dc -i inventory -m ping -u ansibleuser | grep -i "10.0." 
+   76  vim inventory 
+   77  ansible dc -i inventory -m ping -u ansibleuser | grep -i "10.0." 
+   78  ls
+   79  vim inventory 
+   80  ansible dc -i inventory -m ping 
+   81  LS
+   82  ls
+   83  vim inventory 
+   84  ansible dc -i inventory -m ping 
+   85  ls
+   86  vim inventory 
+   87  ansible dc -i inventory -m ping 
+   88  vim inventory 
+   89  ansible dc -i inventory -m ping 
+   90  vim inventory 
+   91  ansible dc -i inventory -m ping 
+   92  ls
+   93  vim inventory 
+   94  ansible dc -i inventory -m ping 
+   95  vim inventory 
+   96  ansible dc -i inventory -m ping 
+   97  ls
+   98  cd ..
+   99  ls
+  100  history > Day1_History.txt
+  101  ls
+  102  git add . ; 
+  103  git commit -m "01-Inventory"
+  104  git push 
+  105  ls
+  106  git pull 
+  107  ls
+  108  cp -rf 01-Inventory 02-AdHoc-Commands
+  109  ls
+  110  cd 02-AdHoc-Commands/
+  111  ls
+  112  cat inventory 
+  113  ls
+  114  cat inventory 
+  115  ls
+  116  ansible 'web:db' -i inventory -m ping 
+  117  ls
+  118  vim inventory 
+  119  ls
+  120  ansible 'web:db' -i inventory -m ping 
+  121  ansible PROD -i inventory -m ping 
+  122  ansible TEST -i inventory -m ping 
+  123  ansible 'PROD:&web' -i inventory -m ping 
+  124  ansible 'TEST:&web' -i inventory -m ping 
+  125  vim inventory 
+  126  ansible 'PROD:&web' -i inventory -m ping 
+  127  ansible 'TEST:&web' -i inventory -m ping 
+  128  vim inventory 
+  129  ansible 'TEST:&web' -i inventory -m ping 
+  130  ansible 'TEST:&db' -i inventory -m ping 
+  131  ansible 'PROD:&db' -i inventory -m ping 
+  132  ansible 'PROD:db' -i inventory -m ping 
+  133  ls
+  134  vim inventory 
+  135  ansible 'PROD:&web' -i inventory -m ping 
+  136  ansible 'PROD:&web:!ansible' -i inventory -m ping 
+  137  ls
+  138  ansible-doc  -l 
+  139  ls
+  140  vim inventory 
+  141  ls
+  142  ansible web -i inventory -m ping
+  143  df -h 
+  144  ansible web -i inventory -m command -a 'df -h'
+  145  uname -a 
+  146  ansible web -i inventory -m command -a 'uname -a '
+  147  ansible web -i inventory -m command -a 'uname -r'
+  148  cat /etc/os-release 
+  149  ansible web -i inventory -m command -a 'cat /etc/*-release'
+  150  cat /etc/*-release
+  151  ansible web -i inventory -m command -a 'cat /etc/os-release'
+  152  ansible web -i inventory -m command -a 'cat /etc/*-release'
+  153  ansible web -i inventory -m shell -a 'cat /etc/*-release'
+  154  ansible web -i inventory -m command -a 'cat /etc/*-release'ls
+  155  apt-get install sshpass -y 
+  156  ansible web -i inventory -m command -a 'apt-get install sshpass -y'
+  157  ansible web -i inventory -m command -a 'apt-get install sshpass -y' -s 
+  158  la
+  159  ansible-doc | grep -i apt
+  160  ansible-doc -l | grep -i apt
+  161  ansible-doc apt 
+  162  ansible web -i inventory -m apt -a 'name=sshpass state=present' -s 
+  163  history | more 
+  164  ansible web -i inventory -m command -a 'whoami' 
+  165  ansible web -i inventory -m shell -a 'whoami; ps -ef' 
+  166  ansible web -i inventory -m command -a 'whoami; ps -ef' 
+  167  ansible web -i inventory -m command -a 'whoami' -m command -a 'ps -ef' 
+  168  ansible web -i inventory -m command -a 'whoami' -m command -a 'uname -a' 
+  169  ansible web -i inventory  -m command -a 'uname -a' 
+  170  ansible web -i inventory  -m command -a 'uname -a >> /tmp/test.txt' 
+  171  ansible web -i inventory  -m shell -a 'uname -a >> /tmp/test.txt' 
+  172  ansible web -i inventory  -m shell -a 'cat /tmp/test.txt' 
+  173  ansible 'web:!ansible' -i inventory -m apt -a 'name=sshpass state=absent ' -s 
+  174  ansible 'web' -i inventory -m apt -a 'name=sshpass state=present ' -s 
+  175  ansible 'web' -i inventory -m apt -a 'name=apache2 state=present ' -s 
+  176  ansible 'web' -i inventory -m service -a 'name=apache2 state=started' -s 
+  177  systemctl status apache2
+  178  systemctl stop apache2
+  179  systemctl status apache2
+  180  ansible 'web' -i inventory -m service -a 'name=apache2 state=started' -s 
+  181  systemctl status apache2
+  182  ls
+  183  history 
+  184  ls
+  185  cd ..
+  186  ls
+  187  history > Day1_History.txt 
+  188  git add . ; git commit -m "02-AdHoc-Commands"; git push 
+  189  ls
+  190  vim /etc/ssh/sshd_config 
+  191  ls
+  192  ssh-keygen 
+  193  ansible 'web' -i inventory -m command 'ssh-copy-id' -s 
+  194  ansible 'web' -i inventory -m command -a 'ssh-copy-id' -s 
+  195  ls
+  196  cd 02-AdHoc-Commands/
+  197  ansible 'web' -i inventory -m command -a 'ssh-copy-id' -s 
+  198  ssh-copy-id 
+  199  ssh-copy-id ansibleuser@10.0.0.5
+  200  exit
+  201  ssh-copy-id ansibleuser@10.0.0.6
+  202  ssh-copy-id ansibleuser@10.0.0.7
+  203  ls
+  204  cd ansible-accenture-26-April-2021/
+  205  ls
+  206  cd 02-AdHoc-Commands/
+  207  ls
+  208  ansible web -i inventory -m ping -u ansibleuser --key=/root/.ssh/id_rsa
+  209  vim inventory 
+  210  ansible web -i inventory -m ping -u ansibleuser --key=/root/.ssh/id_rsa
+  211  vim /etc/ansible/ansible.cfg 
+  212  ls
+  213  vim inventory 
+  214  ls -ltr /root/.ssh/id_rsa
+  215  vim inventory 
+  216  ansible web -i inventory -m ping
+  217  ansible 'web' -i inventory -m service -a 'name=apache2 state=stopped' -s 
+  218  ls
+  219  cd ..
+  220  ls
+  221  history > Day1_History.txt 
+  222  ls
+  223  history 
+  224  git add . ; git commit -m "Ansible-ssh-key"; git push 
+  225  ls
+  226  mkdir 03-ScaleOutInventory
+  227  ls
+  228  cd 03-ScaleOutInventory/
+  229  ls
+  230  mkdir -p {prod,test}/{group_vars,host_vars} 
+  231  apt-get install tree -y 
+  232  ls
+  233  tree . 
+  234  ls -ltr 
+  235  ls -R
+  236  ls
+  237  cp -rf ../02-AdHoc-Commands/inventory prod_inventory
+  238  ls
+  239  cp -rf prod_inventory test/test_inventory
+  240  mv prod_inventory prod
+  241  tree . 
+  242  ls
+  243  cd prod/
+  244  ls
+  245  vim prod_inventory 
+  246  ls
+  247  cp -rf prod_inventory ../test/test_inventory 
+  248  vim ../test/test_inventory 
+  249  ls
+  250  ansible all -i prod_inventory -m ping 
+  251  cd ..
+  252  ls
+  253  ansible all -i prod/prod_inventory -m ping 
+  254  vim prod/group_vars/all
+  255  ls
+  256  ansible all -i prod/prod_inventory -m user -a "name={{username}} password=12345" -s 
+  257  ls
+  258  tree . 
+  259  cat prod/group_vars/all 
+  260  cat prod/prod_inventory 
+  261  ls
+  262  cp -rf prod/group_vars/all prod/group_vars/web
+  263  cp -rf prod/group_vars/all prod/group_vars/db
+  264  ls
+  265  vim prod/group_vars/web 
+  266  vim prod/group_vars/db
+  267  ls
+  268  tree . 
+  269  ansible all -i prod/prod_inventory -m user -a "name={{username}} password=12345" -s 
+  270  ls
+  271  tree .
+  272  cat prod/group_vars/all 
+  273  ls
+  274  cat prod/prod_inventory 
+  275  ls
+  276  cp -rf prod/group_vars/web prod/host_vars/10.0.0.5
+  277  vim prod/host_vars/10.0.0.5
+  278  tree .
+  279  ansible all -i prod/prod_inventory -m user -a "name={{username}} password=12345" -s 
+  280  ls
+  281  vim prod/prod_inventory 
+  282  ansible all -i prod/prod_inventory -m user -a "name={{username}} password=12345" -s 
+  283  vim prod/prod_inventory 
+  284  ansible all -i prod/prod_inventory -m user -a "name={{username}} password=12345" -s 
+  285  ls
+  286  history 
+  287  history > History.txt
+  288  ls
+  289  cd ..
+  290  ls
+  291  git add . ; git commit -m "03-ScaleOutInventory" ; git push 
+  292  ls
+  293  cd 
+  294  ls
+  295  rm -rf ansible-accenture-26-April-2021
+  296  ls
+  297  git clone https://github.com/amitvashisttech/ansible-accenture-26-April-2021.git
+  298  ls
+  299  cd ansible-accenture-26-April-2021/
+  300  ls
+  301  git pull 
+  302  cd ..
+  303  ls
+  304  mkdir test-ansible
+  305  ls
+  306  cd test-ansible/
+  307  ls
+  308  cp -rf ../ansible-accenture-26-April-2021/03-ScaleOutInventory . 
+  309  ls
+  310  cd 03-ScaleOutInventory/
+  311  ls
+  312  vim prod/prod_inventory 
+  313  ls
+  314  git pull 
+  315  cd ..
+  316  ls
+  317  cd ..
+  318  ls
+  319  cd ansible-accenture-26-April-2021/
+  320  ls
+  321  git pull 
+  322  cat README.md 
+  323  ls
+  324  git pull 
+  325  ls
+  326  cat README.md 
+  327  vim README.md 
+  328  ls
+  329  git pull 
+  330  ls
+  331  vim README.md 
+  332  git pull 
+  333  rm README.md 
+  334  git pull 
+  335  ls
+  336  cat README.md 
+  337  cd ..
+  338  ls
+  339  cd test-ansible/
+  340  ls
+  341  tree . 
+  342  ansible-doc  -l 
+  343  ls
+  344  cd ..
+  345  ls
+  346  cd ansible-accenture-26-April-2021/
+  347  ls
+  348  mkdir 04-AnsibleConfig
+  349  ls
+  350  cd 04-AnsibleConfig/
+  351  ls
+  352  cp -rf ../03-ScaleOutInventory/prod/prod_inventory hosts
+  353  ls
+  354  vim ansible.cfg 
+  355  ls
+  356  vim /etc/ansible/ansible.cfg 
+  357  ls
+  358  vim ansible.cfg 
+  359  ls
+  360  ansible all -m ping 
+  361  ansible db -m apt -a "name=sshpass state=absent"
+  362  grep -A5 "privilage_escalation" /etc/ansible/ansible.cfg 
+  363  grep -A5 "privilage" /etc/ansible/ansible.cfg 
+  364  grep -A5 "privilege" /etc/ansible/ansible.cfg 
+  365  grep -A5 "privilege" /etc/ansible/ansible.cfg  >> ansible.cfg 
+  366  ls
+  367  vim ansible.cfg 
+  368  ls
+  369  ansible db -m apt -a "name=sshpass state=absent"
+  370  grep  "host_key_checking" /etc/ansible/ansible.cfg 
+  371  grep  "host_key_checking" /etc/ansible/ansible.cfg  >> ansible.cfg 
+  372  ls
+  373  vim ansible.cfg 
+  374  ansible all -m ping 
+  375  > /root/.ssh/known_hosts 
+  376  ansible all -m ping 
+  377  > /root/.ssh/known_hosts 
+  378  exit
+  379  ls
+  380  cd ansible-accenture-26-April-2021/
+  381  ls
+  382  cd 04-AnsibleConfig/
+  383  ls
+  384  ansible all -m ping 
+  385  cat /root/.ssh/known_hosts 
+  386  grep  "log_path" /etc/ansible/ansible.cfg 
+  387  grep  "log_path" /etc/ansible/ansible.cfg  >> ansible.cfg 
+  388  vim ansible.cfg 
+  389  touch /var/log/ansible.log
+  390  ls
+  391  ansible all -m ping -u ansibletest -k 
+  392  ansible all -m ping 
+  393  ls
+  394  cat ansible.cfg 
+  395  vim /etc/ansible/ansible.cfg 
+  396  ansible all -m ping 
+  397  cd ..
+  398  ls
+  399  cd 03-ScaleOutInventory/
+  400  ls
+  401  cd prod/
+  402  ansible all -i prod_inventory -m ping 
+  403  cat /root/.ssh/known_hosts 
+  404  > /root/.ssh/known_hosts 
+  405  ls
+  406  cd ../../04-AnsibleConfig/
+  407  ls
+  408  ansible all -m ping -u ansibletest -k 
+  409  exit
+  410  ls
+  411  cd ansible-accenture-26-April-2021/04-AnsibleConfig/
+  412  ls
+  413  cat /root/.ssh/known_hosts 
+  414  ansible all -m ping -u ansibletest -k 
+  415  ls
+  416  tail -f /var/log/ansible.log 
+  417  ansible db -m apt -a "name=sshpass state=present"
+  418  cat /root/.ssh/known_hosts 
+  419  ansible db -m apt -a "name=sshpass state=present"
+  420  cat /root/.ssh/known_hosts 
+  421  less /var/log/ansible.log 
+  422  ls
+  423  vim /etc/ansible/ansible.cfg 
+  424  ls
+  425  vim ansible.cfg 
+  426  ansible all -m apt -a "name=sshpass state=present"
+  427  ansible all -m apt -a "name=sshpass state=present" -vvv
+  428  vim ansible.cfg 
+  429  ansible all -m apt -a "name=sshpass state=present" -vvv
+  430  ls
+  431  cd ..
+  432  ls
+  433  git add . ; git commit -m "04-AnsibleConfig" ; git push 
+  434  git config credential.helper store
+  435  ls
+  436  cd 04-AnsibleConfig/
+  437  ls
+  438  cd ..
+  439  ls
+  440  cd 04-AnsibleConfig/
+  441  ls
+  442  history 
+  443  history > History.txt
+  444  ls
+  445  cd ..
+  446  ls
+  447  git add . ; git commit -m "04-AnsibleConfig" ; git push 
+  448  ls
+  449  cp -rf 04-AnsibleConfig 05-Gathering_Facts
+  450  ls
+  451  cd 05-Gathering_Facts/
+  452  ls
+  453  ansible 10.0.0.5 -m setup 
+  454  ansible 10.0.0.5 -m setup -a "filter=ansible_os_family"
+  455  ansible 10.0.0.5 -m setup -a "filter=ansible_all_ipv4_addresses"
+  456  ansible 10.0.0.5 -m setup -a "filter=ansible_user_shell"
+  457  ansible all -m setup 
+  458  ansible 10.0.0.5 -m setup  --tree ./setup 
+  459  ls
+  460  cd setup/
+  461  ls
+  462  cat 10.0.0.5 
+  463  python -m json.tool 10.0.0.5 
+  464  cat 10.0.0.5 
+  465  python -m json.tool 10.0.0.5 
+  466  python -m json.tool 10.0.0.5 | grep -i uname
+  467  uname  -a 
+  468  python -m json.tool 10.0.0.5 | grep -i  4.15.0-1113-azure
+  469  ls
+  470  cd ..
+  471  ls
+  472  history > History.txt 
+  473  ls
+  474  cd ..
+  475  git add . ; git commit -m "05-Gathering_Facts" ; git push 
+  476  cd - 
+  477  ls
+  478  ansible 10.0.0.5 -m setup
+  479  ls
+  480  cat setup/10.0.0.5 | grep -i date 
+  481  cat setup/10.0.0.5 | grep -i ansible_date_time
+  482  ansible 10.0.0.5 -m setup | grep -i date
+  483  ansible 10.0.0.5 -m setup -a "filter=ansible_date_time"
+  484  ansible 10.0.0.5 -m setup -a "filter=ansible_date_time{.date}"
+  485  ansible 10.0.0.5 -m setup -a "filter=ansible_date_time{date}"
+  486  ansible 10.0.0.5 -m setup -a "filter={ansible_date_time.{date}}"
+  487  ansible 10.0.0.5 -m setup -a "filter=ansible_date_time.{date}"
+  488  ansible 10.0.0.5 -m setup -a "filter=ansible_date_time.date"
+  489  ansible 10.0.0.5 -m setup -a "ansible_date_time"
+  490  ansible 10.0.0.5 -m setup -a "filter=ansible_date_time"
+  491  ansible 10.0.0.5 -m setup -a "filter=ansible_date_time[date]"
+  492  ansible 10.0.0.5 -m setup -a "filter=ansible_date_time.date"
+  493  ansible 10.0.0.5 -m setup -a "ansible_date_time.date"
+  494  ansible-doc  setup 
+  495  ansible 10.0.0.5 -m setup -a "factor=ansible_date_time.date"
+  496  ansible 10.0.0.5 -m setup -a "facter=ansible_date_time.date"
+  497  ansible-doc  yum
+  498  ansible --version 
+  499  ls
+  500  ansible -m debug -a "msg={{ lookup('pipe', 'date +%Y-%m-%d-%H:%M:%s') }}" localhost
+  501  ls
+  502  ansible 10.0.0.5 -m debug -a "msg={{ lookup('pipe', 'date +%Y-%m-%d-%H:%M:%s') }}
+  503  ansible 10.0.0.5 -m debug -a "msg={{ lookup('pipe', 'date +%Y-%m-%d-%H:%M:%s') }}"
+  504  ls
+  505  cd ..
+  506  ls
+  507  mkdir 06-Playbooks
+  508  ls
+  509  cp -rf 05-Gathering_Facts/hosts 06-Playbooks/
+  510  cp -rf 05-Gathering_Facts/ansible.cfg 06-Playbooks/
+  511  ls
+  512  cd 06-Playbooks/
+  513  ls
+  514  vim webserver.yaml
+  515  cat hosts 
+  516  vim hosts 
+  517  ls
+  518  vim webserver.yaml
+  519  ls
+  520  ansible-playbook webserver.yaml 
+  521  vim ansible.cfg 
+  522  ansible-playbook webserver.yaml 
+  523  vim ansible.cfg 
+  524  ansible-playbook webserver.yaml 
+  525  vim webserver.yaml 
+  526  ansible-playbook webserver.yaml 
+  527  ansible 10.0.0.6 -m service -a "name=apache2 state=stopped"
+  528  ansible-playbook webserver.yaml 
+  529  ls
+  530  vim webserver.yaml 
+  531  ls
+  532  mkdir files 
+  533  ls
+  534  vim files/index-db.yaml
+  535  ls
+  536  ansible-playbook webserver.yaml --check
+  537  ansible-playbook webserver.yaml 
+  538  vim webserver.yaml 
+  539  ansible-playbook webserver.yaml 
+  540  ls
+  541  vim files/
+  542  ls
+  543  cd files/
+  544  ls
+  545  mv index-db.yaml index-db.html
+  546  ls
+  547  cd ..
+  548  ls
+  549  vim webserver.yaml 
+  550  ansible-playbook webserver.yaml 
+  551  ls
+  552  vim files/index-db.html 
+  553  ansible-playbook webserver.yaml 
+  554  ls
+  555  vim webserver.yaml 
+  556  vim files/common.html
+  557  ls
+  558  ansible-playbook webserver.yaml 
+  559  ls
+  560  cd ..
+  561  cd - 
+  562  ls
+  563  history > History.txt
+  564  ls
+  565  cd ../
+  566  ls
+  567  git add . ; git commit -m "06-Playbooks" ; git push 
+  568  ls
+  569  cd ..
+  570  ls
+  571  cd ansible-accenture-26-April-2021/
+  572  ls
+  573  cp -rf 06-Playbooks 07-Playbook-Logic
+  574  vim 07-Playbook-Logic/
+  575  ls
+  576  cd 07-Playbook-Logic/
+  577  ls
+  578  vim webserver.yaml 
+  579  ls
+  580  ansible-playbook webserver.yaml 
+  581  vim webserver.yaml 
+  582  ansible-playbook webserver.yaml 
+  583  vim webserver.yaml 
+  584  ansible-playbook webserver.yaml 
+  585  ls
+  586  cd ..
+  587  ls
+  588  git add . ; git commit -m "06-Playbooks-Logic" ; git push 
+  589  ls
+  590  cd 07-Playbook-Logic/
+  591  ls
+  592  cp -rf webserver.yaml webserver-2.yaml 
+  593  ls
+  594  vim webserver-2.yaml 
+  595  ls
+  596  echo "Test Web Page" >> files/web.html
+  597  ansible-playbook webserver-2.yaml 
+  598  vim webserver-2.yaml 
+  599  ansible-playbook webserver-2.yaml 
+  600  vim webserver-2.yaml 
+  601  ansible-playbook webserver-2.yaml 
+  602  echo "Hey Info" >> files/info.html
+  603  ansible-playbook webserver-2.yaml 
+  604  ls
+  605  cd ..
+  606  ls
+  607  git add . ; git commit -m "06-Playbooks-Logic" ; git push 
+  608  l
+  609  cd 07-Playbook-Logic/
+  610  ls
+  611  history > History.txt 
+  612  cd ..
+  613  ls
+  614  git add . ; git commit -m "06-Playbooks-Logic" ; git push 
+  615  ls 
+  616  cd 07-Playbook-Logic/
+  617  ansible-playbook webserver-2.yaml 
+  618  ls
+  619  cd ansible-accenture-26-April-2021/
+  620  ls
+  621  cp -rf 07-Playbook-Logic 08-Templates
+  622  ls
+  623  cd 08-Templates/
+  624  ls
+  625  mkdir templates
+  626  ls
+  627  vim templates/sample.j2
+  628  ls
+  629  vim webserver-2.yaml 
+  630  ls
+  631  rm 1
+  632  ls
+  633  ansible-playbook  webserver-2.yaml 
+  634  vim webserver-2.yaml 
+  635  ansible-playbook  webserver-2.yaml 
+  636  vim webserver-2.yaml 
+  637  ansible-playbook  webserver-2.yaml 
+  638  vim webserver-2.yaml 
+  639  ls
+  640  vim templates/info.j2
+  641  vim webserver-2.yaml 
+  642  ls
+  643  ansible-playbook webserver-2.yaml 
+  644  ls
+  645  vim webserver-2.yaml 
+  646  ansible-playbook webserver-2.yaml 
+  647  vim templates/sample.j2 
+  648  vim templates/info.j2 
+  649  ansible-playbook webserver-2.yaml 
+  650  ls
+  651  history > History.txt 
