@@ -6,8 +6,8 @@
   #sudo: yes
   become: yes
   vars:
-    doc_root: "/var/www/html"
-    username: "Amit Vashist"
+    doc_root: "/var/www/html/mywebappv2"
+    username: "Amit"
   tasks:
   - name: Install Apache Packages 
     apt: name=apache2 state=present
@@ -25,6 +25,12 @@
   - name: Start Apache Service
     service: name=apache2 state=started enabled=True
     when: ansible_os_family == "Debian"
+
+  - name: Purge the old Dir
+    file: path=/var/www/html/ state=absent
+
+  - name: Create Site Location
+    file: path={{doc_root}} state=directory mode=0755
 
   - name: Deploy DB ConfigFile
     copy: src=files/index-db.html dest={{doc_root}}/info-db.html
