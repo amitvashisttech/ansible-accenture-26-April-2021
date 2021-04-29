@@ -66,7 +66,7 @@
 
 - name: Web Page
   copy: src=files/info.html dest={{doc_root}}/info.html
-  when: result1|failed
+  #when: result1|failed
 
 - name: Template Web Page
   template: src=templates/sample.j2 dest={{doc_root}}/sample.html
