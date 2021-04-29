@@ -1,0 +1,12 @@
+---
+
+- hosts: all 
+  become: yes
+  tasks: 
+  - name: Check HostName of the Remote Servers
+    shell: echo "HostName:" {{inventory_hostname}} >> /tmp/hostname.txt
+
+- include: server-common.yaml
+  tags: common
+- include: webserver.yaml
+  tags: web

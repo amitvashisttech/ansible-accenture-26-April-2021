@@ -1,0 +1,9 @@
+---
+
+- hosts: 'web'
+  become: yes
+  tasks:
+  - name: with_sequence
+    debug: 
+      msg: "{{item}}"
+    with_sequence: start=0 end=4 format=testuser%2x
