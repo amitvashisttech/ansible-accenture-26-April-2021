@@ -1,0 +1,5 @@
+---
+# vars file for webserver
+doc_root: "/var/www/html/mywebappv3"
+username: "Ansible-Role"
+sitename: "Accenture-Demo-Test-8"
