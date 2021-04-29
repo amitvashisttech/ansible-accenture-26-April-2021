@@ -1,0 +1,13 @@
+---
+
+- hosts: 'web:db'
+  become: yes
+  name: "WebServer Deployment"
+  vars:
+    change_id: CH00004321
+  pre_tasks:
+  - include: roles/pre-and-post-tasks/tasks/pre-task.yaml 
+  roles:
+  - webserver
+  post_tasks:
+  - include: roles/pre-and-post-tasks/tasks/post-task.yaml 
