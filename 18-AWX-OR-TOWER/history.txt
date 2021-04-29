@@ -1,0 +1,28 @@
+ 1  cat /etc/sysconfig/selinux
+    2  sed -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/sysconfig/selinux
+    3  cat /etc/sysconfig/selinux
+    4  setenforce 0
+    5  dnf -y install epel-release
+    6  dnf -y update
+    7  reboot
+    8  dnf -y install git gcc gcc-c++ ansible nodejs gettext device-mapper-persistent-data lvm2 bzip2 python3-pip wget nano libseccomp
+    9  dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+   10  dnf -y install docker-ce
+   11  alternatives --set python /usr/bin/python3
+   12  python --version
+   13  systemctl status docker
+   14  systemctl start docker
+   15  systemctl status docker
+   16  systemctl enable docker
+   17  pip3 install setuptools_rust
+   18  pip3 install wheel
+   19  pip3 install docker-compose
+   20  git clone -b 17.1.0 https://github.com/ansible/awx.git
+   21  ls
+   22  cd awx/
+   23  ;s
+   24  ls
+   25  openssl rand -base64 30
+   26  nano ~/awx/installer/inventory
+   27  vim ~/awx/installer/inventory
+   28  ansible-playbook -i ~/awx/installer/inventory ~/awx/installer/install.yml -v
